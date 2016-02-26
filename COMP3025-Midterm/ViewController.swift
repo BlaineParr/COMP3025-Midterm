@@ -9,15 +9,32 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    var itemOneValue = 0
+    
+    @IBOutlet weak var ItemOneValueLabel: UILabel!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func DecrementItemOneButtonClick(sender: UIButton) {
+        itemOneValue--
+        
+        if(itemOneValue < 0)
+        {
+            itemOneValue = 0
+        } //if ends
+        
+        ItemOneValueLabel.text = String(itemOneValue)
+    }
+    
+    @IBAction func IncrementItemOneButtonClick(sender: UIButton) {
+        itemOneValue++
+        
+        ItemOneValueLabel.text = String(itemOneValue)
     }
 
 
